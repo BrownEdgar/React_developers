@@ -1,0 +1,8 @@
+.App{
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+}
+.App img {
+	flex: 1 0 30%;
+}
