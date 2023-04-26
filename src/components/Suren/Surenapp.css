@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #dff09d;
+}
+.App h1{
+    text-align: center;
+    color: #1c4648;
+}
+.App h2{
+    margin-top: 25px;
+    color: #295e62;
+    text-align: center;
+}
+.App p{
+    margin-top: 25px;
+    text-align: center;
+    font-size: large;
+    color: #1c4648;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+button{
+    padding: 15px 20px 15px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #d5d46f;
+    color: #1c4648;
+    font-size: larger;
+    font-style: italic;
+}
