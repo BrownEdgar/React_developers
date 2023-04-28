@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
+.App {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.App ul {
+	list-style: none;
+	width: 500px;
+	margin: 15px auto;
+}
+
+.App ul > li {
+	padding: 12px;
+	border: 1px solid teal;
+	border-radius: 12px;
+	font-weight: 600;
+	text-align: left;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
+
+
+li.done {
+	text-decoration: line-through;
+	background-color: greenyellow;
+}
+
+li  button {
+	float: right;
+	width: 20px;
+	height: 20px;
+	background: transparent;
+	border: 1px solid #111;
+	cursor: pointer;
+	transition: 0.3s;
+}
+li button:hover {
+	background-color: #ff0404;
+	color: #fff;
+	scale: 1.05;
+	transition: 0.3s;
+}
