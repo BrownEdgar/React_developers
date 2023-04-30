@@ -1,32 +1,49 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 
 export default function App() {
-	const [users, setUsers] = useState([]);
-
+	const [userData, setUserData] = useState({ 
+	  posts: [],
+	  todos: []
+	});
+	const [userId, setUserId] = useState(0);
+  
 	useEffect(() => {
-		fetch('https://jsonplaceholder.typicode.com/users')
-			.then(response => response.json())
-			.then(users => setUsers(users))
-	}, [])
-
-	const handleDelete = (id) => {
-		setUsers(prevUsers => prevUsers.filter(user => user.id !== id));
-	}
-
+	  const getData = async () => {
+		try {
+		  const todos = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}/todos`);
+		  const posts = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}/posts`);
+		  setUserData({
+			todos: todos.data,
+			posts: posts.data 
+		  });
+		} catch (err) {
+		  console.log(err);
+		}
+	  };
+	  getData();
+	}, [userId]);
+  
 	return (
-			<div className="App">
-				<h1> List Of Users</h1>
-				{users.map(user => (
-					<div key={user.id}>
-						<h2>{user.name}</h2>
-						<p>({user.email})</p>
-						<div className="btns">
-							<button onClick={() => handleDelete(user.id)}>Delete</button>
-						</div>
-					</div>
-				))}
-			</div>
-	)
-}
+	  <div className='App'>
+		<label>
+		  <h1> Select User ID</h1>
+		  <input type="number" value={userId} onChange={(e) => setUserId(e.target.value)}/>
+		</label>
+		<h2>Todos:</h2>
+		<ul>
+		  {userData.todos.map((todo) => (
+			<li key={todo.id}>{todo.title}</li>
+		  ))}
+		</ul>
+		<h2>Posts:</h2>
+		<ul>
+		  {userData.posts.map((post) => (
+			<li key={post.id}>{post.title}</li>
+		  ))}
+		</ul>
+	  </div>
+	);
+  }
