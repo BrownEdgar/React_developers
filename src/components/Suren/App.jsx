@@ -30,7 +30,7 @@ export default function App() {
 	  <div className='App'>
 		<label>
 		  <h1> Select User ID</h1>
-		  <input type="number" value={userId} onChange={(e) => setUserId(e.target.value)}/>
+		  <input type="number" max={10} value={userId} onChange={(e) => setUserId(e.target.value)}/>
 		</label>
 		<h2>Todos:</h2>
 		<ul>

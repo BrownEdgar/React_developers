@@ -57,6 +57,8 @@ export default function App() {
 				setData(response?.data)
 			})
 		}
+
+		
 		gitData()
 	}, [])
 

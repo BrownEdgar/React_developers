@@ -1,0 +1,59 @@
+$product-bg-color:#188754;
+@mixin flex($jc, $ai) {
+	display: flex;
+	justify-content: $jc;
+	align-items: $ai;
+}
+
+.App {
+	width: 900px;
+	@include flex(center,center);
+	border: 2px solid teal;
+	margin: 20px auto;
+	min-height: 180px;
+	padding: 2rem;
+	font-size: 22px;
+
+	&-Product {
+		background-color: $product-bg-color;
+		padding: 8px 22px 8px 8px;
+		width: 86%;
+		@include flex(flex-start, flex-start);
+		border-radius: 12px;
+		color: #fff;
+		height: 180px;
+	}
+
+	&-Image {
+		width: 180px;
+		height: 160px;
+		flex-basis: 25%;
+		background-position: center;
+		background-size: cover;
+		margin-right: 20px;
+		border-radius: 8px;
+		border: 2px solid #fff;
+	}
+
+	&-Last {
+		flex: 0 0 25%;
+		@include flex(space-between, flex-end);
+		flex-direction: column;
+		height: 90%;
+		button {
+			padding: 10px;
+			background-color: #fff;
+			border-radius: 12px;
+			font-size: 20px;
+			border: 0;
+		}
+		p {
+			
+		}
+	}
+
+	&-Info {
+		flex: 0 0 50%;
+
+	}
+}
