@@ -1,0 +1,26 @@
+.wrapper{
+	max-width: 1140px;
+	margin: 40px auto;
+	padding: 1rem;
+	border: 2px solid teal;
+	form {
+		width: 50%;
+		margin: 0 auto;
+		input {
+			background-color: #ccc;
+			width: 100%;
+			margin: 10px;
+			padding: 12px;
+			border: 0;
+			&[type="submit"] {
+				cursor: pointer;
+				transition: 0.3s;
+				&:hover {
+					background-color: green;
+					transition: 0.3s;
+					transform: translateY(-4px);
+				}
+			}
+		}
+	}
+}
