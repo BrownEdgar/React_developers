@@ -1,0 +1,49 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  *{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body{
+    background-color: #F5F5F5;
+  }
+  .App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+        margin-top: 25px;
+    }
+    form{
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    input{
+        padding: 10px 85px 10px 85px;
+        font-size: large;
+    } 
+    select{
+        padding: 10px 70px 10px 70px;
+        opacity: .7;
+        font-size: large;
+    }   
+    }
+    textarea{
+        font-size: medium;
+    }
+    .btn{
+        background-color: #DD1E4A;
+        color: #FFDFEF;
+        border: none;
+        padding: 10px 15px 10px 15px;
+        font-size: large;
+    }
+  }
