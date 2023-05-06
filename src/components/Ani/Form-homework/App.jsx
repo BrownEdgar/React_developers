@@ -43,7 +43,7 @@ export default function App() {
             <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"
             onChange={handleChange} value={user.message}
             ></textarea>
-            <input type="submit" /> 
+            <input type="submit" value='SEND'/> 
         </form>
     </div>
   )

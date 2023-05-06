@@ -6,20 +6,30 @@
 	form {
 		width: 50%;
 		margin: 0 auto;
-		input {
-			background-color: #ccc;
-			width: 100%;
-			margin: 10px;
-			padding: 12px;
-			border: 0;
-			&[type="submit"] {
-				cursor: pointer;
-				transition: 0.3s;
-				&:hover {
-					background-color: green;
+		div {
+			input {
+				background-color: #9b9a9a;
+				width: 100%;
+				font-size: 18px;
+				margin-top: 14px;
+				padding: 16px 12px;
+				border-radius: 8px;
+				border: 0;
+
+				&[type="submit"] {
+					cursor: pointer;
 					transition: 0.3s;
-					transform: translateY(-4px);
+
+					&:hover {
+						background-color: green;
+						transition: 0.3s;
+						transform: translateY(-4px);
+					}
 				}
+			}
+			.error {
+				color: #ff0204;
+				font-size: 14px;
 			}
 		}
 	}
