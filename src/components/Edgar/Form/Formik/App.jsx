@@ -1,5 +1,5 @@
 import { useFormik,Formik,Field,ErrorMessage,Form } from 'formik'
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as yup from 'yup'
 
 import '../App.scss'
@@ -8,7 +8,10 @@ const validationSchema = yup.object({
 	username: yup.string().required().min(2),
 	email: yup.string().required().email("must by email"),
 	password: yup.string().required().min(6).max(18),
-	language: yup.string().required()
+	language: yup.string().required(),
+	message: yup.string(),
+	gender: yup.string().required(),
+	date: yup.date().required()
 })
 
 const initialValues = {
@@ -16,12 +19,31 @@ const initialValues = {
 	email: '',
 	password: '',
 	language: '',
+	message: '',
+	gender: '',
+	date: ''
 }
 
 
 export default function App() {
-	const handleSubmit = (values) => { 
+	
+
+
+	useEffect(() => {
+		window.addEventListener('scroll', (e) => {
+			console.log(e)
+		})
+		return () => {
+			window.removeEventListener('scroll', (e) => {
+				console.log(e)
+			})
+		}
+	}, [])
+	
+	const handleSubmit = (values, {resetForm}) => { 
+		
 		console.log(values)
+		resetForm()
 	}
 
 	return (
@@ -34,6 +56,7 @@ export default function App() {
 				validateOnBlur={true}
 			>
 			{(formik) => {
+					console.log(formik)
 				return (
 					<Form>
 						<div>
@@ -56,9 +79,13 @@ export default function App() {
 							<ErrorMessage name='password' component='p' className='error' />
 						</div>
 						<div>
-							<select
+							<Field type="date" name="date" /> 
+						</div>
+						<div>
+							<Field
 								name="language"
 								id="language"
+								as="select"
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 							>
@@ -66,10 +93,20 @@ export default function App() {
 								<option value="css3">css3</option>
 								<option value="javascript">javascript</option>
 								<option value="react.js">react.js</option>
-							</select>
+							</Field>
+							<Field type="radio" name="gender" value="male"/> male
+							<Field type="radio" name="gender" value="female"/> female
+							<Field 
+								as="textarea" 
+								placeholder="your message" 
+								rows={10} 
+								cols={20} 
+								name="message"
+								maxLength={40}
+								/>
 						</div>
 						<div>
-							<input type="submit" value="Register" />
+							<input type="submit" value="Register"  disabled={!formik.isValid}/>
 						</div>
 					</Form>
 				)
@@ -79,3 +116,6 @@ export default function App() {
 		</div>
 	)
 }
+
+
+

@@ -1,52 +1,67 @@
-.App{
-    max-width: 1140px;
-    margin: 40px auto;
-    padding: 3rem;
-    h1,p{
-        text-align: left;
-    }
-    p{
-        width: 100%;
-        color: rgb(116, 110, 110);
-    }
-    h1{
-        width: 100%;
-    }
-    form{
-        width: 100%;
-        margin: 0 auto; 
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        input{
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px 20px;
-            margin: 10px 0;
-        }
-        button{
-            color: white;
-            background-color: red;
-            border: 0;
-            padding: 10px 30px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        select{
-            width: 50%;
-            height: 40px;
-            margin: 45px 0;
-            option{
-                color: black;
-            }
-        }
-    }
-    .inputText > p{
-        color: rgb(48, 48, 48);
-        font-weight: 600;
-    }
-    .btnDiv{
-        width: 100%;
-    }
+.App {
+	max-width: 1140px;
+	margin: 40px auto;
+	padding: 3rem;
+
+	h1,
+	p {
+		text-align: left;
+	}
+
+	p {
+		width: 100%;
+		color: rgb(116, 110, 110);
+	}
+
+	h1 {
+		width: 100%;
+	}
+
+	form {
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 26px;
+
+		&>div {
+			flex-basis: 48%;
+		}
+
+		input {
+			width: 100%;
+
+			padding: 10px 20px;
+			margin: 10px 0;
+		}
+
+		button {
+			color: white;
+			background-color: red;
+			border: 0;
+			padding: 10px 30px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+
+		select {
+			width: 50%;
+			height: 40px;
+			margin: 45px 0;
+
+			option {
+				color: black;
+			}
+		}
+	}
+
+	.inputText>p {
+		color: rgb(48, 48, 48);
+		font-weight: 600;
+	}
+
+	.btnDiv {
+		width: 100%;
+	}
 }
