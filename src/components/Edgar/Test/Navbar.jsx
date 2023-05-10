@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ROUTES from './routes/routes'
 
 export default function Navbar() {
 	return (
@@ -7,13 +8,16 @@ export default function Navbar() {
 			<nav>
 				<ul>
 					<li>
-						<Link to="/">Home</Link>
+						<Link to={ROUTES.HOME}>Home</Link>
 					</li>
 					<li>
-						<Link to="/about">About</Link>
+						<Link to={ROUTES.ADDUSER}>add user</Link>
 					</li>
 					<li>
-						<Link to="/blog">blog</Link>
+						<Link to={ROUTES.BLOG}>blog</Link>
+					</li>
+					<li>
+						<Link to={ROUTES.POSTS}>Posts</Link>
 					</li>
 				</ul>
 			</nav>
