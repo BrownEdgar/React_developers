@@ -1,0 +1,21 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    .input{
+        margin-bottom: 20px;
+        #username, #password, #email{
+            width: 200px;
+            padding: 8px;
+        }
+        .error{
+            color: red;
+        }
+    }
+    #submit{
+        background-color: rgb(116, 204, 116);
+        border: 1px solid black;
+        padding: 7px;
+    }
+}
