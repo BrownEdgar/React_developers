@@ -18,8 +18,8 @@ export default function App() {
 		<div>
 			<Navbar />
 			<Routes>
-				<Route path='/' element={<LogIn saveUsers={saveUsers} />}/>
-				<Route path='/registration' element={<Registration />}/>
+				<Route path='/' element={<LogIn  />}/>
+				<Route path='/registration' element={<Registration saveUsers={saveUsers} />}/>
 			</Routes>
 		</div>
 	)

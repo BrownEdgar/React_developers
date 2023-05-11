@@ -15,12 +15,11 @@ const initialValues = {
 	password: '',
 }
 
-export default function Registration() {
+export default function Registration({saveUsers}) {
     const handleSubmit = (values, {resetForm}) => { 
         console.log(values)
-
-		resetForm()
-		
+		saveUsers({...values})
+		resetForm()		
 	}
 
 
