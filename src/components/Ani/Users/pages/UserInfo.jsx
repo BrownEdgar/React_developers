@@ -5,12 +5,12 @@ import axios from 'axios';
 export default function UserInfo() {
 	const {id} = useParams();
 	const [user, setUser] = useState({})
-	console.log(user)
+	
 
 	useEffect(() => {
 		axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
 			.then(result => {
-				console.log(result);
+		
 				setUser(result.data)
 			})
 	}, [])

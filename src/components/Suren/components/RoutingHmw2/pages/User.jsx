@@ -5,14 +5,19 @@ import { useParams } from 'react-router-dom';
 export default function User() {
 	const { id } = useParams();
 	const [user, setUser] = useState({});
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
+		setLoading(true)
 		axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
 			.then(res => {
-				console.log(res);
 				setUser(res.data);
+				setLoading(false)
 			})
 	}, [id]);
+	if (loading) {
+		return <h1>loading....</h1>
+	}
 
 	return (
 		<div className='User-set'>

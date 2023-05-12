@@ -9,9 +9,9 @@ export default function Users() {
 	useEffect(() => {
 		axios.get('https://jsonplaceholder.typicode.com/users')
 			.then(result => {
-                console.log(result.data)
-                setUser(result.data)
-            })
+				console.log(result.data)
+				setUser(result.data)
+			})
 	}, [])
 
 	return (
@@ -22,7 +22,7 @@ export default function Users() {
 						<Link key={elem.id} to={`${elem.id}`}>
 							<p>{elem.name}</p>
 						</Link>
-				)
+					)
 				})
 			}
 		</div>

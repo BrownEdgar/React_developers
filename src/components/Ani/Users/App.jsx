@@ -17,7 +17,7 @@ export default function App() {
 			<Routes>
 				<Route path={ROUTES.HOME} element={<Layout />}>
 					<Route index element={<Home />} />
-                    <Route path={ROUTES.USERS} element={<Users />} />
+          <Route path={ROUTES.USERS} element={<Users />} />
 					<Route path={ROUTES.USERINFO} element={<UserInfo />} />
 				</Route>
 
