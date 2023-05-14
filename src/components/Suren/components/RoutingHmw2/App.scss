@@ -120,7 +120,17 @@ form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+	span {
+		width: 25px;
+		height: 25px;
+		font-size: 14px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	
+		border-radius: 50%;
+		border: 2px solid red;
+	}
     a {
       text-decoration: none;
       color: #999;

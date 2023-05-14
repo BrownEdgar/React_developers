@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
 import About from './pages/About';
+// import Home from './pages/Home';
 import Blog from './pages/Blog';
 import ErrorPage from './pages/ErrorPage';
 import ROUTES from './routes/routes';
 import Layout from './pages/Layout';
-
-import "./App.scss"
+import Login from './pages/Login';
 import Posts from './pages/Posts';
 import Post from './pages/Post';
+import PrivateRoutes from './pages/PrivateRoutes';
+
+const Home = lazy(() => import('./pages/Home'))
+import "./App.scss"
+
 
 export default function App() {
 	const [users, setUsers] = useState([])
@@ -22,7 +26,7 @@ export default function App() {
 		setUsers(users.filter(user => user.id !== id))
 	}
 
-	const togglePassword = (id) => { 
+	const togglePassword = (id) => {
 		console.log(id)
 		const user = users.map(elem => {
 			if (elem.id === id) {
@@ -31,19 +35,25 @@ export default function App() {
 			return elem
 		});
 		setUsers(user)
-
 	}
-
+	
 	return (
 		<div>
 
 			<Routes>
 				<Route path={ROUTES.HOME} element={<Layout />}>
-					<Route index element={<Home users={users} deleteUser={deleteUser} togglePassword={togglePassword}/>} />
-					<Route path={ROUTES.ADDUSER} element={<About addUser={addUser} />} />
+					<Route element={<PrivateRoutes />}>
+						<Route index element={<Home 
+							users={users} 
+							deleteUser={deleteUser} 
+							togglePassword={togglePassword}
+						/>} />
+						<Route path={ROUTES.ADDUSER} element={<About addUser={addUser} />} />
+					</Route>
 					<Route path={ROUTES.BLOG} element={<Blog />} />
 					<Route path={ROUTES.POSTS} element={<Posts />} />
 					<Route path='posts/:id' element={<Post />} />
+					<Route path={ROUTES.LOGIN} element={<Login />} />
 					<Route path='*' element={<ErrorPage />} />
 				</Route>
 

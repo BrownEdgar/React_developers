@@ -11,13 +11,13 @@ const initialValues = {
 	password: "",
 }
 
-export default function About({addUser}) {
+export default function About({}) {
 
 	const navigate = useNavigate();
 
 	const handleSubmit = (values, {resetForm}) => {
 		console.log(values)
-		addUser({ ...values, id: Date.now().toString().slice(-5), isShow: false}) 
+		
 		resetForm()
 		navigate({pathname: ROUTES.HOME})
 	 }

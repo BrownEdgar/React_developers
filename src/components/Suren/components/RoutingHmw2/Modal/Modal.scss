@@ -1,0 +1,30 @@
+.Modal{
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	top: 0;
+	background-color: #000000a9;
+	.wrapper {
+		color: #222;
+		width: 450px;
+		min-height: 300px;
+		background-color: #fff;
+		padding: 16px;
+		border-radius: 12px;
+		text-align: center;
+	}
+	button {
+		width: 150px;
+		font-size: 16px;
+		margin: 20px;
+		padding: 13px;
+		cursor: pointer;
+		border-radius: 12px;
+		border: 0;
+		background-color: #46de00;
+	}
+}
