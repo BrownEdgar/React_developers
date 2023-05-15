@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/Suren/components/RoutingHmw2/App'
+import App from './components/Edgar/PropTypes/App'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 
