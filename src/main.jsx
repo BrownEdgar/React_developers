@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/Edgar/PropTypes/App'
+import App from './components/Seda/UseReducer/App'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 
