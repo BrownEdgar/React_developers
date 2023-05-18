@@ -1,5 +1,7 @@
 // `state` ունենալ  այս տեսքով
 
+import { func } from "prop-types"
+
 export const initialState = {
     actions: 0,
     developers: [],
@@ -22,15 +24,37 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case 'add-posts': return addPosts(state, action)
-        case 'failure' : return {...state, status:'fail'}
+        case 'add-developer' : return addDev(state, action) 
+        case 'sort-arr' : return sorter(state, action) 
+        
 
+
+        case 'failure' : return {...state, status:'fail'}
 
         default: return state
     }
 }
 
 function addPosts (state, action) {
-    // const posts = [...state.posts]
-    // posts.push(action.payload.posts)
-    // return { ...state,  posts}
+    const posts = [...state.posts]
+    posts.push(action.payload)
+    return {actions: state.actions + 1, developers: state.developers, posts: posts, arr: state.arr }
+}
+
+function addDev (state, action) {
+    return {
+        ...state, 
+        actions: state.actions + 1, 
+        developers: [...state.developers, action.payload]
+    }
+
+}
+
+function sorter (state, action) {
+    const sorted = [...state.arr].sort((a,b) => a - b)
+    return{
+        ...state, 
+        actions: state.actions + 1, 
+        arr: sorted
+    }
 }
