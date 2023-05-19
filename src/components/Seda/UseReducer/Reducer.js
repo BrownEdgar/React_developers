@@ -25,10 +25,7 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case 'add-posts': return addPosts(state, action)
         case 'add-developer' : return addDev(state, action) 
-        case 'sort-arr' : return sorter(state, action) 
-        
-
-
+        case 'sort-arr' : return sorter(state) 
         case 'failure' : return {...state, status:'fail'}
 
         default: return state
@@ -36,9 +33,12 @@ export default function reducer(state = initialState, action) {
 }
 
 function addPosts (state, action) {
-    const posts = [...state.posts]
-    posts.push(action.payload)
-    return {actions: state.actions + 1, developers: state.developers, posts: posts, arr: state.arr }
+
+    return {
+			...state,
+			actions: state.actions + 1,
+			posts: action.payload,  
+		}
 }
 
 function addDev (state, action) {
@@ -50,8 +50,8 @@ function addDev (state, action) {
 
 }
 
-function sorter (state, action) {
-    const sorted = [...state.arr].sort((a,b) => a - b)
+function sorter (state) {
+    const sorted = state.arr.toSorted((a,b) => a - b)
     return{
         ...state, 
         actions: state.actions + 1, 

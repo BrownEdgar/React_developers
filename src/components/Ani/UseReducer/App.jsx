@@ -66,12 +66,12 @@ export default function App() {
     }
 
     const sortArray = () =>{
-        dispatch({type: "sort", payload: state.arr.toSorted((a, b) => a -b)})
+        dispatch({type: "sort"})
 
     }
 
     const changeId = () =>{
-        dispatch({type: "change-id", payload: [...state.arr]})
+        dispatch({type: "change-id",})
 
     }
 

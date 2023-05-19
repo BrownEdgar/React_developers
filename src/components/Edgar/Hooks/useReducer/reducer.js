@@ -1,3 +1,5 @@
+import { ADD_USER, FAILURE } from "./actionTypes"
+
 export const initialState = {
 	users: [],
 	actionCount: 0,
@@ -8,8 +10,8 @@ export const initialState = {
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case 'add-users': return addUsers(state, action)
-		case 'failure': return { ...state, status: "fail" }
+		case ADD_USER: return addUsers(state, action)
+		case FAILURE: return { ...state, status: "fail" }
 
 		default: return state
 	}
@@ -25,3 +27,17 @@ function addUsers(state, action) {
 	}
 
 }
+
+
+//action creater
+export function addPosts(data) {
+	return { 
+		type: ADD_USER, 
+		payload: data 
+	}
+}
+
+export function errorCase() {
+	return { type: FAILURE }
+}
+

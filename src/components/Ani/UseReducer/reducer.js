@@ -69,13 +69,13 @@ export default function reducer(state, action){
             return {...state,  developers: action.payload};
         
         case 'sort':
-            return {...state,  arr: action.payload};
+				return { ...state, arr: state.arr.toSorted((a, b) => a - b) };
 
         case 'change-id':
-            const newPost = state.posts.map(post =>{
+            const newPost = state.posts.map((post,index) =>{
                 return{
                     ...post,
-                    id: action.payload.pop()
+                    id: arr[index]
                 }
             } )
             return {...state,  posts: newPost };

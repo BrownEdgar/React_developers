@@ -27,7 +27,7 @@ export default function App() {
     }
 
     const sortClick = () => {
-        dispatch({type: 'sort-arr', payload: state.arr})
+        dispatch({type: 'sort-arr'})
     }
 
     return (
