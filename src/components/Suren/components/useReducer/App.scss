@@ -1,0 +1,81 @@
+
+
+$primaryColor: #4285f4;
+$secondaryColor: #fbbc05;
+$accentColor: #34a853;
+body {
+    background: linear-gradient(to bottom, royalblue, lightblue);
+}
+.App {
+  text-align: center;
+
+  h1 {
+    margin-top: 0;
+  }
+
+  button {
+    margin-bottom: 1rem;
+    margin-top: 25px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: $primaryColor;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($primaryColor, 10%);
+    }
+  }
+
+  form {
+    margin-bottom: 1rem;
+
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid $primaryColor;
+      outline: none;
+
+      &:focus {
+        border-color: $accentColor;
+      }
+    }
+
+    button[type="submit"] {
+      margin-left: 0.5rem;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+
+    button {
+      margin-left: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      background-color: $secondaryColor;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($secondaryColor, 10%);
+      }
+    }
+  }
+}
