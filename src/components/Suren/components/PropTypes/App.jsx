@@ -4,51 +4,50 @@ import axios from 'axios';
 import './App.scss'
 
 export default function App() {
-  const [data, setData] = useState([]);
-  const [sortedData, setSortedData] = useState([]);
+	const [data, setData] = useState([]);
+	const [sortedData, setSortedData] = useState([]);
 
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-      .then(res => {
-        setData(res.data);
-        setSortedData(res.data);
-      });
-  }, []);
+	useEffect(() => {
+		axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+			.then(res => {
+				setData(res.data);
+				setSortedData(res.data);
+			});
+	}, []);
 
-  const todoToggle = (id) => {
-    const updatedData = data.map(todo => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed
-        };
-      }
-      return todo;
-    });
+	const todoToggle = (id) => {
+		const updatedData = data.map(todo => {
+			if (todo.id === id) {
+				return {
+					...todo,
+					completed: !todo.completed
+				};
+			}
+			return todo;
+		});
 
-    setData(updatedData);
-  }
+		setData(updatedData);
+	}
 
-  const handleSort = (completed) => {
-    const sorted = [...data].sort((a, b) => {
-      if (completed) {
-        return a.completed - b.completed;
-      } else {
-        return b.completed - a.completed;
-      }
-    });
+	const handleSort = (completed) => {
+		let sorted = []
+		if (completed) {
+			sorted = data.toSorted((a, b) => a.completed - b.completed);
+		} else {
+			sorted = data.toSorted((a, b) => b.completed - a.completed)
 
-    setSortedData(sorted);
-  }
+		}
+		setSortedData(sorted);
+	}
 
-  return (
-    <div>
-      <h1>To Do List</h1>
-      <div className='button-container'>
-        <button onClick={() => handleSort(true)}>Completed</button>
-        <button onClick={() => handleSort(false)}>Uncompleted</button>
-      </div>
-      <Component data={sortedData} todoToggle={todoToggle} />
-    </div>
-  );
+	return (
+		<div>
+			<h1>To Do List</h1>
+			<div className='button-container'>
+				<button onClick={() => handleSort(true)}>Completed</button>
+				<button onClick={() => handleSort(false)}>Uncompleted</button>
+			</div>
+			<Component data={sortedData} todoToggle={todoToggle} />
+		</div>
+	);
 }

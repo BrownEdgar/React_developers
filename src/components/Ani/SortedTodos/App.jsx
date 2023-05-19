@@ -28,7 +28,7 @@ export default function App() {
 
     const deleteTodo = (id) => {
 		// const filteredData = data.filter(elem => elem.id !==id);
-		setData(data.filter(elem => elem.id !==id))
+		setData(data.filter(elem => elem.id !== id))
 	}
 
 	return (

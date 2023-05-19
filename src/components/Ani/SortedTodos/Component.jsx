@@ -6,28 +6,26 @@ import './Component.css'
 
 export default function Component(props) {
 	return (
-        <div>
-            <div className='sort'>
-                <button onClick={() => props.sorteTrue()}>True First</button>
-                <button onClick={() => props.sorteFalse()}>False First</button>
-            </div>
-            
-            <div className='flex'>
-		 {
-			props.data.map(elem => {
-				return <div key={elem.id}>
-                    <div  onClick={() => props.todoToggle(elem.id)} >
-					    <h2>{elem.title}</h2>
-					    <span className={`${elem.completed ? "completed" : ""}`}></span>
-				    </div>
-                    <button onClick={() => props.deleteTodo(elem.id)}>X</button>
-                </div>
-                
-                
-			} )
-		 }
+		<div>
+			<div className='sort'>
+				<button onClick={() => props.sorteTrue()}>True First</button>
+				<button onClick={() => props.sorteFalse()}>False First</button>
+			</div>
+
+			<div className='flex'>
+				{
+					props.data.map(elem => {
+						return <div key={elem.id}>
+							<div onClick={() => props.todoToggle(elem.id)} >
+								<h2>{elem.title}</h2>
+								<span className={`${elem.completed ? "completed" : ""}`}></span>
+							</div>
+							<button onClick={() => props.deleteTodo(elem.id)}>X</button>
+						</div>
+					})
+				}
+			</div>
 		</div>
-        </div>
 	)
 }
 
@@ -41,7 +39,5 @@ Component.propTypes = {
 		})
 	),
 	todoToggle: PropTypes.func.isRequired,
-	sorteFalse: PropTypes.func.isRequired,
-	sorteTrue: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired
+	deleteTodo: PropTypes.func.isRequired
 }
