@@ -11,6 +11,8 @@ body {
 	line-height: 1.6;
 	font-family: 'Outfit', sans-serif;
 	background-color: #222;
+	color: #fff;
+	margin: 50px;
 
 }
 
@@ -21,4 +23,20 @@ a {
 
 ul {
 	list-style-type: none;
+}
+li {
+	padding: 16px;
+	margin: 20px;
+	border: 2px solid teal;
+}
+
+button {
+	border-radius: 12px;
+	padding: 13px 23px;
+	border: 2px solid #008367fb;
+	font-weight: 700;
+	color: #111;
+	font-size: 16px;
+	margin: 10px;
+	cursor: pointer;
 }

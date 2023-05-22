@@ -31,8 +31,6 @@ export default function App() {
 				? <h1>something went wrong</h1>
 				: <h1>State: {JSON.stringify(state.users, null, 3)}</h1>
 			}
-
-
 		</div>
 	)
 }
