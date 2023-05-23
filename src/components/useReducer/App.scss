@@ -1,3 +1,46 @@
 *{
     color: #fff;
 }
+
+li{
+    border: 0.5px solid #fff;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 47%;
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    transition: 0.3s;
+    &:hover{
+        background-color: #ffffff21;
+        transition: 0.3s;
+        button{
+            transition: 0.3s;
+            &:hover{
+                background-color: #1d1c1ca4;
+            }
+        }
+    }
+    p{
+        font-size: 20px;
+    }
+    button{
+        font-size: 14px;
+        padding: 16px;
+    }
+}
+
+button{
+    background-color: #535151c9;
+    padding: 1.4rem;
+    border: 0;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    &:hover{
+        background-color: #ffffff4f;
+        transition: 0.3s;
+    }
+}

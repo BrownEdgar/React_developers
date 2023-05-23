@@ -62,21 +62,11 @@ export const initialState = [
   }
 ]
 
-// մեջը արդեն ունենալ հետևյալ ֆունկցիաները
-
-// `toggletodo` - որը ՝todo՝ զանգվածում
-
-// `alldone` - որը ՝todo՝ զանգվածում բոլորի `completed` հատկությունը կսարգի true 
-// `removeById` - որը կստանա `id` և կջնջի համապատասխան `todo`-ն
-// `addTodo` - որը ՝todo՝ զանգվածում կավելացնի նոր ՝todo՝
-// `tojson` - որը ՝todo՝ զանգվաը կսարգի `json` և կվերադարձնի մեզ
-// ինչպես նաև այդ ՝todo՝-ը նկարել էջում -->
-
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case allDone: return allDone(state, action)
-		// case FAILURE: return { ...state, status: "fail" }
+		case 'completed-all': return allDone(state, action)
+		case 'remove-id': return removeById(state, action)
 
 		default: return state
 	}
@@ -85,7 +75,15 @@ export default function reducer(state = initialState, action) {
 
 
 export function allDone(state, action){
-    return {
-        completed: true
-    }
+  const newState = state.map(todo => {
+      todo.completed == true
+  })
+  return newState
 }
+
+
+
+// export function removeById(state, action, id){
+//   const newState2 = state.filter(elem => elem.id !== id)
+//   return newState2
+// }
