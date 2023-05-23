@@ -1,0 +1,56 @@
+
+$light-color: #78c27d;
+$dark-color: #226e27;
+$deep-color: #005e2d;
+$primary-color: #4caf50;
+$text-color: #333;
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, $light-color, $dark-color, $deep-color);
+}
+.App {
+  text-align: center;
+
+  h1 {
+    color: $text-color;
+  }
+
+  .btns {
+    margin-bottom: 20px;
+
+    button {
+      &.add-button,
+      &.done-button,
+      &.to-json-button {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+  .json-data {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    pre {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
