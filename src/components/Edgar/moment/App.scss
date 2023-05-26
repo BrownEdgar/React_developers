@@ -1,0 +1,41 @@
+.box{
+	width: 1140px;
+	margin: 20px auto;
+	text-align: center;
+	form {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		input {
+			margin: 10px;
+			padding: 12px;
+			width: 40%;
+		}
+	}
+	ul {
+		width: 50%;
+		margin: 0 auto;
+		li {
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			flex-direction: column;
+			background-color: #111;
+			color: #fff;
+			border-radius: 10px;
+			border: 0;
+			span {
+				font-size: 18px;
+				line-height: 2;
+				&.moment {
+					font-size: 14px;
+					font-weight: 700;
+					border-bottom: 1px solid royalblue;
+				}
+			}
+
+		}
+	}
+}

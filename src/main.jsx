@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/Frunz/Hooks/useEffect/moment/App'
+import App from './components/Edgar/moment/App'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 
