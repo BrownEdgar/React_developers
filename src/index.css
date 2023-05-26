@@ -25,9 +25,9 @@ ul {
 	list-style-type: none;
 }
 li {
-	padding: 16px;
-	margin: 20px;
-	border: 2px solid teal;
+	padding: 8px 16px;
+	margin: 10px;
+
 }
 
 /* button {
