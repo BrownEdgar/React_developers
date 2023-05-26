@@ -46,7 +46,9 @@ export default function App() {
 					<button onClick={toggleShow}>hide answer</button>
                 <button>Next</button>
 				</div>
-                <button onClick={nextQuestions}className='nextbtn'>Next</button>
+                <div>
+				<button onClick={nextQuestions}className='nextbtn'>Next</button>
+				</div>
 
 			</div>
 		</div>
