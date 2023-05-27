@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(to right, lightgray, deepskyblue);
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        color: #1abc9c
+    }
+    h2{
+        color: #2980b9;
+    }
+  }
+  
+  .btns {
+    margin-top: 20px;
+  
+    button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    button:hover{
+        background-color: #1abc9c;
+    }
+  }
+  
+  .user-list {
+    list-style: none;
+    padding: 0;
+  
+    li {
+      margin-top: 25px;
+      padding: 8px;
+      border-radius: 4px;
+      color: #fff;
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  
+    .javascript {
+      background-color: #2ecc71;
+    }
+  
+    .react {
+      background-color: #2980b9;
+    }
+  
+    .node {
+      background-color: #1abc9c;
+    }
+  
+    .html-css {
+      background-color: #bdc3c7;
+    }
+  }
+  
