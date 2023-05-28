@@ -1,0 +1,25 @@
+.javascript{
+    color: #2ecc71;
+}
+.react{
+    color: #2980b9;
+}
+.node{
+    color: #1abc9c;
+}
+.html{
+    color: #bdc3c7;
+}
+
+.wrap{
+    text-align: center;
+}
+h3{
+    margin: 15px;
+}
+
+button{
+   margin: 7px;
+   padding: 5px;
+   width: 100px;
+}
