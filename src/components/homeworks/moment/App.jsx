@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import classNames from "classnames";
 import './App.scss'
 
 export default function App () {
@@ -89,14 +90,12 @@ export default function App () {
           <li
             key={user.id}
             className={
-              user.language === "javascript"
-                ? "javascript"
-                : user.language === "react"
-                ? "react"
-                : user.language === "node"
-                ? "node"
-                : "html-css"
-            }
+								classNames(null, {
+									javascript: user.language === "javascript",
+									react: user.language === "react",
+									node: user.language === "node",
+									'html-css' : user.language === "html-css",
+								})}
           >
             {user.firstName} {user.lastName} ({user.language})
           </li>
