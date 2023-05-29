@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/homeworks/moment/App'
+import App from './components/Component'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 
