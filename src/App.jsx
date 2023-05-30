@@ -1,18 +1,52 @@
 import { useState } from 'react'
-import db from './data/db.json'
-import './App.css'
-import Posts from './components/Posts';
+import { useDispatch, useSelector } from 'react-redux'
+import './App.scss'
+
+
 
 function App() {
-	const [data, setData] = useState(db.posts);
-	const handleDelete = (id) => {
-		const filteredData = data.filter(post => post.id !== id);
-		setData(filteredData)
+	
+	const data = useSelector((state) => state)
+  	const dispatch = useDispatch()
+	
+	const checkNumber = () => {
+		dispatch({type:'checkNumber'})
 	}
+
+	const checkPalindrome = () => {
+		dispatch({type: 'checkPalindrome'})
+	}
+
+	const checkData = () => {
+		dispatch({type: 'checkData'})
+	}
+	
 	return (
 		<div>
-			<h1>Lesson 4</h1>
-			<Posts posts={data} handleDelete={handleDelete} />
+      		<h1>My state. <ul>
+							<li>
+								count:{JSON.stringify(data.count)}
+							</li>
+							<li>
+								name:{JSON.stringify(data.name)}
+							</li>
+							<li>
+								data:{JSON.stringify(data.data)}
+							</li>
+							<li>
+								result:{JSON.stringify(data.result)}
+							</li>
+							<li>
+								last action:{JSON.stringify(data.lastAction)}
+							</li>
+							<li>
+								last modified:{JSON.stringify(data.lastModified)}
+							</li>
+					</ul>
+					</h1>
+			<button onClick={checkNumber}>Is the number simple?</button>
+			<button onClick={checkPalindrome}>Is the name palindrome?</button>
+			<button onClick={checkData}>check data</button>
 		</div>
 	)
 }
