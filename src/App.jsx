@@ -1,20 +1,24 @@
-import { useState } from 'react'
-import db from './data/db.json'
-import './App.css'
-import Posts from './components/Posts';
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { addUserAction, deleteUserAction } from './store/features/usersSlice';
 
-function App() {
-	const [data, setData] = useState(db.posts);
-	const handleDelete = (id) => {
-		const filteredData = data.filter(post => post.id !== id);
-		setData(filteredData)
+
+
+export default function App() {
+	const state = useSelector(state => state);
+	const dispatch = useDispatch();
+
+	const addUser = () => { 
+		dispatch(addUserAction('Karine'))
+		dispatch(deleteUserAction('anahit'))
 	}
+
 	return (
 		<div>
-			<h1>Lesson 4</h1>
-			<Posts posts={data} handleDelete={handleDelete} />
+			<pre>
+				{JSON.stringify(state, null, 1)}
+			</pre>
+			<button onClick={addUser}>add user</button>
 		</div>
 	)
 }
-
-export default App

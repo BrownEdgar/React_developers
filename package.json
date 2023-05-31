@@ -10,6 +10,7 @@
     "start": "concurrently \"vite\" \"json-server --watch db.json --port 3004\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "concurrently": "^8.0.1",
@@ -18,8 +19,10 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.7",
     "react-router-dom": "^6.11.1",
     "react-slick": "^0.29.0",
+    "redux": "^4.2.1",
     "sass": "^1.62.1",
     "yup": "^1.1.1"
   },
