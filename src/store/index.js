@@ -1,63 +1,58 @@
-import {createStore} from 'redux'
+import { createStore } from 'redux'
 
 const initialState = {
-    count: 11,
-    name: 'Anna',
-    data: [ 'assignment', 'architecture', 'art' ],
-    result: null,
-    lastAction: null,
-    lastModified: null
+	count: 11,
+	name: 'anna',
+	data: ['assignment', 'architecture', 'art'],
+	result: null,
+	lastAction: null,
+	lastModified: null
 }
 
 function rootReducer(state, action) {
-    // const count = state.count
+	switch (action.type) {
 
-    // function checkNumber(count) {
-    //     for (let i = 2; i < count.length; i++) {
-    //         if (count % i === 0) {
-    //             return {...state, result: false}
-    //         } else {
-    //             return {...state, result: true}
-    //         }         
-    //     } 
-    // }
+		case 'checkNumber': return checkNumber(state)
 
-    const palindName = state.name;
+		case 'checkPalindrome': return checkName(state)
 
-    function checkName() {
-        for (let i = 0; i < palindName.length; i++) {
-            if( palindName[i] = palindName.charAt(palindName.length) - 1 ) {
-                return {...state, result: true}
-            } else {
-                return {...state, result: false}
-            }
-            
-        }
-    }
+		case 'checkData': return arrCheck(state)
 
-    function arrCheck(){
-       const answer = state.data.every(elem => {
-        const letter = elem[0]
-        elem[0] = letter
-       })
-       console.log(answer);
-    }
+		default: return state
+	}
 
-    switch (action.type) {
 
-        // case 'checkNumber': return checkNumber(state.count)
-        
-        // case 'checkPalindrome' : return checkName()
-
-        case 'checkData' : return arrCheck()
-        
-        default: return state
-    }
-
-    return state;
 }
 
 
+function checkNumber(state) {
+	for (let i = 2; i < state.count / 2; i++) {
+		if (state.count % i === 0) {
+			return { ...state, result: false }
+		}
+	}
+	return { ...state, result: true }
+}
+
+
+
+function checkName(state) {
+	for (let i = 0; i < state.name/2; i++) {
+		console.log(state.name.length - 1 - i)
+		if (state.name[i] !== state.name[state.name.length - 1 - i]) {
+			return { ...state, result: false }
+		}
+	}
+	return { ...state, result: true }
+}
+
+function arrCheck(state) {
+	const letter = state.data[0][0]
+	const answer = state.data.every(elem => {
+		return elem[0] == letter
+	})
+	return { ...state, result: answer }
+}
 
 
 const store = createStore(rootReducer, initialState)
