@@ -1,23 +1,51 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Component from './components/Component';
-import { PLUS } from './store/actionTypes';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteIdAction, deleteNameAction, addUserAction, getUserAction, sortUsersAction } from './store/features/usersSlice';
+
+
 
 export default function App() {
-	const data =  useSelector((state) => state)
-	const dipatch = useDispatch();
+	const state = useSelector(state => state);
+	const dispatch = useDispatch();
 
-	const handleClick = () => { 
-		dipatch({type: PLUS})
+	const deleteId = () => {
+		dispatch(deleteIdAction(50))
+	}
+
+	const deleteName = () => {
+		dispatch(deleteNameAction("Charlene"))
+	}
+
+	const addUser = () => {
+		dispatch(addUserAction({
+			"id": 51,
+			"username": "Anna",
+			"login": "test",
+			"email": "test@alexa.com",
+			"gender": "Female",
+			"address": "Suite 5"
+		}))
+	}
+
+	const getUser = () => {
+		dispatch(getUserAction("Svanetti"))
+	}
+
+	const sortUsers = () => {
+		dispatch(sortUsersAction())
 	}
 
 	return (
 		<div>
-			<h1>Redux PART one  my State : <code>{JSON.stringify(data)}</code></h1>
-			<button onClick={handleClick}>change count</button>
-			<Component />
-			
+			<pre>
+				{JSON.stringify(state, null, 1)}
+			</pre>
 
+			<button onClick={deleteId}>DELETE BY ID</button>
+			<button onClick={deleteName}>DELETE BY NAME</button>
+			<button onClick={addUser}>ADD USER</button>
+			<button onClick={getUser}>GET USER</button>
+			<button onClick={sortUsers}>SORT USERS</button>
 
 		</div>
 	)
