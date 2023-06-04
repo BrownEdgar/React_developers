@@ -1,0 +1,5 @@
+export const DEL_BY_ID = 'DEL_BY_ID'
+export const DEL_BY_NAME = 'DEL_BY_NAME'
+export const ADD_USER = 'ADD_USER'
+export const GET_BY_LOGIN = 'GET_BY_LOGIN'
+export const SORT_NAMES = 'SORT_NAMES'

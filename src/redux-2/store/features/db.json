@@ -1,0 +1,49 @@
+[{
+    "id":1,
+    "username": "Hiram",
+    "login": "Tuffell",
+    "email": "htuffell0@smugmug.com",
+    "gender": "Male",
+    "address": "PO Box 42559"
+},
+{
+    "id":2,
+    "username": "Tobit",
+    "login": "Vella",
+    "email": "tvella1@deviantart.com",
+    "gender": "Male",
+    "address": "20th Floor"
+},
+{
+    "id":3,
+    "username": "Fan",
+    "login": "Cathenod",
+    "email": "fcathenod4@wbeden.co.uk",
+    "gender": "Female",
+    "address": "Room 1578"
+},
+{
+    "id":4,
+    "username": "Raimundo",
+    "login": "TufTalbyfell",
+    "email": "rtalby6@journal.com",
+    "gender": "Male",
+    "address": "PO Box 39276"
+},
+{
+    "id":5,
+    "username": "Lissie",
+    "login": "Hullyer",
+    "email": "lhullyer@hjdhjf.com",
+    "gender": "Female",
+    "address": "Room 926"
+},
+{
+    "id":6,
+    "username": "Darryl",
+    "login": "Tufpiperleyfell",
+    "email": "dpiperley5@smugmug.com",
+    "gender": "Female",
+    "address": "Suite 86"
+}
+]
