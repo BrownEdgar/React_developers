@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ADD_USER, SORT_NAMES } from "../actions/userAtions"
+import { ADD_USER, SORT_NAMES, GET_BY_LOGIN, DEL_BY_ID, DEL_BY_NAME  } from "../actions/userAtions"
 import usersData from "./db.json"
 
 const initialUsersValue = {
@@ -22,7 +22,7 @@ export default function usersReducer(state = initialUsersValue, action) {
 
         case DEL_BY_ID: return{
             ...state, 
-            users: state.users.filter(user => user.id !== action.payload )
+            users: state.users.filter(user => user.id !== action.payload.id )
         };
 
         case DEL_BY_NAME: return {
