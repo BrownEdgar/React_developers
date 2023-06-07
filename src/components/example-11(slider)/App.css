@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 2500px;
+}
+
+hr {
+  background-color: teal;
+  margin: 26px auto;
+}

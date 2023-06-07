@@ -1,30 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-
-import { addCountAction } from './store/features/countSlice';
-import { addUser } from './store/features/usersSlice';
-
-
+import { getAsyncProducts } from './store/features/productsSlice';
+import Sliders from './components/Slider/Sliders';
 
 export default function App() {
-	const state = useSelector(state => state);
+	const products = useSelector(state => state.products.data);
+	const status = useSelector(state => state.products.result);
 	const dispatch = useDispatch();
 
-	const addUsera = () => { 
-		dispatch(addUser({ username :'karine'}))
-		
-	}
-	const addCount = () => { 
-		dispatch(addCountAction(1))
+	const addProducts = () => { 
+		dispatch(getAsyncProducts('https://dummyjson.com/products'))
 	}
 
+	useEffect(() => {
+		addProducts()
+	}, [])
+
+	console.log(products)
 	return (
 		<div>
-			<pre>
-				{JSON.stringify(state, null, 1)}
-			</pre>
-			<button onClick={addUsera}>add user</button>
-			<button onClick={addCount}>add count</button>
+			<Sliders products={products}/>
+	
 		</div>
 	)
 }

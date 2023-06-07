@@ -1,39 +1,24 @@
 import { configureStore } from '@reduxjs/toolkit';
-import usersSlice from './features/usersSlice';
-import countReducer from './features/countSlice';
-import { ADD_USER } from './actions/users-actions';
-import { ADD_COUNT } from './actions/count-actions';
+import productsSlice from './features/productsSlice';
 
 
-const myFirstMiddleWare = (store) => (next) => (action) => {
-	if (action.type === ADD_USER) {
-		const state = store.getState()
-		if (!state.users.data.includes(action.payload.username)) {
-			next(action)
-		}
-	} else {
-		next(action)
-	}
-}
 
-const mySecondMiddleWare = (store) => (next) => (action) => {
-	switch (action.type) {
-		case ADD_COUNT:
-			const state = store.getState()
-			
-			if (state.count < 10) {
-				return next(action)
-			}
-			break;
+// const myFirstMiddleWare = (store) => (next) => (action) => {
+// 	if (action.type === ADD_USER) {
+// 		const state = store.getState()
+// 		if (!state.users.data.includes(action.payload.username)) {
+// 			next(action)
+// 		}
+// 	} else {
+// 		next(action)
+// 	}
+// }
 
-		default: return next(action)
-	}
-}
+
 
 const store = configureStore({
 	reducer: {
-		users: usersSlice,
-		count: countReducer
+		products: productsSlice,
 	}
 });
 

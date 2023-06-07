@@ -4,9 +4,12 @@
 	margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+	
 }
-
+body {
+	font-family: 'Outfit', sans-serif;
+	background-color: #111;
+}
 /* body {
 	line-height: 1.6;
 	font-family: 'Outfit', sans-serif;
@@ -24,11 +27,7 @@ a {
 ul {
 	list-style-type: none;
 }
-li {
-	padding: 8px 16px;
-	margin: 10px;
 
-}
 
 /* button {
 	border-radius: 12px;
