@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import productsSlice from './features/productsSlice';
+import todoSlice from './features/todos/todoSlice';
 
 
 
@@ -19,6 +20,7 @@ import productsSlice from './features/productsSlice';
 const store = configureStore({
 	reducer: {
 		products: productsSlice,
+		todos: todoSlice,
 	}
 });
 

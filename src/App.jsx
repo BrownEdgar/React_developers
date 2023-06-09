@@ -1,26 +1,59 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getAsyncProducts } from './store/features/productsSlice';
-import Sliders from './components/Slider/Sliders';
+import { addTodo, getAsyncTodos, selectAllCompletedTodos, selectAllTodos } from './store/features/todos/todoSlice';
+
+import './App.css'
 
 export default function App() {
-	const products = useSelector(state => state.products.data);
-	const status = useSelector(state => state.products.result);
+	const todos = useSelector(selectAllCompletedTodos);
 	const dispatch = useDispatch();
 
-	const addProducts = () => { 
-		dispatch(getAsyncProducts('https://dummyjson.com/products'))
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const { message } = e.target;
+		const todo = {
+			id: Date.now(),
+			title: message.value,
+			completed: false,
+		}
+		dispatch(addTodo(todo))
+		e.target.message.value = ''
 	}
 
 	useEffect(() => {
-		addProducts()
-	}, [])
-
-	console.log(products)
-	return (
-		<div>
-			<Sliders products={products}/>
+		dispatch(getAsyncTodos())
 	
+
+	}, [])
+	
+	const handleClick = (e) => {
+		e.target.classList.add('active');
+		setTimeout(() => { 
+			e.target.disabled = true;
+			e.target.classList.remove('active')
+		 }, 3000)
+		dispatch(getAsyncTodos())
+	}
+
+	return (
+		<div className='App'>
+			{/* <Sliders products={products}/> */}
+			<div className="formBox">
+				<form onSubmit={handleSubmit}>
+					<input type="text" placeholder='ented todo title' id='message' required />
+					<input type="submit" value="add" />
+				</form>
+			</div>
+			<div className='actions'>
+				<button onClick={handleClick}>get <span>async</span> todos </button>
+			</div>
+			<div className='list'>
+				<ul>
+					{todos.map(elem => {
+						return <li key={elem.id}>{elem.title}</li>
+					})}
+				</ul>
+			</div>
 		</div>
 	)
 }
