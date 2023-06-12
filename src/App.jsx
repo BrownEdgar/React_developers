@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, getAsyncTodos, selectAllCompletedTodos, selectAllTodos } from './store/features/todos/todoSlice';
+import { addCount, addTodo, getAsyncTodos, selectAllCompletedTodos, selectAllTodos } from './store/features/todos/todoSlice';
 
 import './App.css'
 
 export default function App() {
-	const todos = useSelector(selectAllCompletedTodos);
+	const todos = useSelector(selectAllTodos);
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
@@ -22,8 +22,7 @@ export default function App() {
 
 	useEffect(() => {
 		dispatch(getAsyncTodos())
-	
-
+		dispatch(addCount('s'))
 	}, [])
 	
 	const handleClick = (e) => {

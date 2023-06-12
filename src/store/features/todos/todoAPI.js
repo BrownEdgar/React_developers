@@ -1,5 +1,5 @@
 const fetchData = () => { 
-	return new Promise((resolve, reject) => { 
+	return new Promise((resolve) => { 
 		const asyncTodos = [
 			{
 				"id": 10,
