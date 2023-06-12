@@ -1,58 +1,19 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { addCount, addTodo, getAsyncTodos, selectAllCompletedTodos, selectAllTodos } from './store/features/todos/todoSlice';
+import React from 'react'
+import { useSelector, useDispatch} from 'react-redux'
+import { addCount, addCountAsync } from './features/count/countSlice'
 
-import './App.css'
 
 export default function App() {
-	const todos = useSelector(selectAllTodos);
-	const dispatch = useDispatch();
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const { message } = e.target;
-		const todo = {
-			id: Date.now(),
-			title: message.value,
-			completed: false,
-		}
-		dispatch(addTodo(todo))
-		e.target.message.value = ''
+	const dispatch = useDispatch()
+	const handleChange=()=>{
+		dispatch(addCountAsync())
 	}
-
-	useEffect(() => {
-		dispatch(getAsyncTodos())
-		dispatch(addCount('s'))
-	}, [])
-	
-	const handleClick = (e) => {
-		e.target.classList.add('active');
-		setTimeout(() => { 
-			e.target.disabled = true;
-			e.target.classList.remove('active')
-		 }, 3000)
-		dispatch(getAsyncTodos())
-	}
-
+	const users = useSelector(state => state.users)
 	return (
-		<div className='App'>
-			{/* <Sliders products={products}/> */}
-			<div className="formBox">
-				<form onSubmit={handleSubmit}>
-					<input type="text" placeholder='ented todo title' id='message' required />
-					<input type="submit" value="add" />
-				</form>
-			</div>
-			<div className='actions'>
-				<button onClick={handleClick}>get <span>async</span> todos </button>
-			</div>
-			<div className='list'>
-				<ul>
-					{todos.map(elem => {
-						return <li key={elem.id}>{elem.title}</li>
-					})}
-				</ul>
-			</div>
+		<div>
+			<h1>{JSON.stringify(users)}</h1>
+			<button onClick={handleChange}>change count</button>
 		</div>
 	)
 }
+
