@@ -1,28 +1,45 @@
-body {
-    background: linear-gradient(to right, khaki, lightgray);
-  }
-  .App {
-    // padding: 20px;
-  
-    pre {
-      // background-color: #f1f1f1;
-      padding: 10px;
-      font-family: monospace;
-    }
-  
-    button {
-      margin-right: 10px;
-      padding: 8px 16px;
-      font-size: 14px;
-      background-color: darkolivegreen;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: darkgoldenrod;
-      }
+body{
+  background: linear-gradient(to right, lightyellow, lime);
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  button {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
     }
   }
-  
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+  }
+
+  .todo-json {
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    white-space: pre;
+  }
+}

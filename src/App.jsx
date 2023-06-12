@@ -1,64 +1,47 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  deleteById,
-  deleteByName,
-  addUser,
-  getUserByLogin,
-  sortUsersByName,
-  resetUser
-} from './store/features/userSlice';
-import './App.scss'
+import { allDone, removeById, addTodo } from './app/features/todoSlice';
+import "./App.scss"
+
 
 export default function App() {
-  const state = useSelector(state => state);
-  const dispatch = useDispatch();
+    const todos = useSelector(state => state.todos);
+    const dispatch = useDispatch();
 
-  const deleteByIdHandler = () => {
-    dispatch(deleteById({ id: 50 }));
-  };
-
-  const deleteByNameHandler = () => {
-    dispatch(deleteByName({ username: "Charlene" }));
-  };
-
-  const addUserHandler = () => {
-    dispatch(
-      addUser({
-        user: {
-          id: 51,
-          username: "Alexa",
-          login: "Enter-Alexa",
-          email: "test@alexa.com",
-          gender: "Female",
-          address: "Ervand Kochar street"
-        }
-      })
-    );
-  };
-
-  const getUserHandler = () => {
-    dispatch(getUserByLogin({ login: "Donovin" }));
-  };
-
-  const sortUsersHandler = () => {
-    dispatch(sortUsersByName());
-  };
-
-  const resetUsersHandler = () => {
-    dispatch(resetUser());
-  };
-
+    const handleAllDone = () => {
+        dispatch(allDone());
+      };
+    
+      const handleRemoveById = (id) => {
+        dispatch(removeById(id));
+      };
+    
+      const handleAddTodo = (todo) => {
+        dispatch(addTodo(todo));
+      };
+    
+      const toJson = () => {
+        return JSON.stringify(todos);
+      };
+    
+      const drawTodos = () => {
+        return (
+          <ul>
+            {todos.map(todo => (
+              <li key={todo.id}>{todo.title}</li>
+            ))}
+          </ul>
+        );
+      };
+    
   return (
     <div className='App'>
-      <pre>{JSON.stringify(state, null, 1)}</pre>
-
-      <button onClick={deleteByIdHandler}>DELETE BY ID</button>
-      <button onClick={deleteByNameHandler}>DELETE BY NAME</button>
-      <button onClick={addUserHandler}>ADD USER</button>
-      <button onClick={getUserHandler}>GET USER</button>
-      <button onClick={sortUsersHandler}>SORT USERS</button>
-      <button onClick={resetUsersHandler}>RESET USER LIST</button>
-    </div>
-  );
+    <button onClick={handleAllDone}>All Done</button>
+    <button onClick={() => handleRemoveById(1)}>Remove by ID</button>
+    <button onClick={() => handleAddTodo({ id: 3, title: "New Todo", completed: false })}>Add Todo</button>
+    <h1>HOMEWORK</h1>
+    <div>{toJson()}</div>
+    {drawTodos()}
+  </div>
+  )
 }
