@@ -24,6 +24,7 @@
     "react-slick": "^0.29.0",
     "redux": "^4.2.1",
     "sass": "^1.62.1",
+    "store": "^2.0.12",
     "yup": "^1.1.1"
   },
   "devDependencies": {

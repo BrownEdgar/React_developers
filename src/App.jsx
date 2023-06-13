@@ -1,52 +1,52 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteIdAction, deleteNameAction, addUserAction, getUserAction, sortUsersAction } from './store/features/usersSlice';
+import { useSelector, useDispatch } from 'react-redux'
+import { alldone, removeById, addTodo} from './features/todos/todoSlice';
 
-
+import './features/todos/todo.scss'
 
 export default function App() {
-	const state = useSelector(state => state);
+	const todo = useSelector((state) => state.todo)
 	const dispatch = useDispatch();
 
-	const deleteId = () => {
-		dispatch(deleteIdAction(50))
-	}
+	const setAllDone = () => {
+        dispatch(alldone());
+      };
 
-	const deleteName = () => {
-		dispatch(deleteNameAction("Charlene"))
-	}
+      const getRemoveById = (id) => {
+        dispatch(removeById(id));
+      };
 
-	const addUser = () => {
-		dispatch(addUserAction({
-			"id": 51,
-			"username": "Anna",
-			"login": "test",
-			"email": "test@alexa.com",
-			"gender": "Female",
-			"address": "Suite 5"
-		}))
-	}
+      const hendleAddTodo = (todo) => {
+        dispatch(addTodo(todo));
+      };
 
-	const getUser = () => {
-		dispatch(getUserAction("Svanetti"))
-	}
+	  const toJson = () => {
+        return JSON.stringify(todo)
+      };
 
-	const sortUsers = () => {
-		dispatch(sortUsersAction())
-	}
+	  const todosTitle = () => {
+        return (
+          <ul>
+            {todo.map(todo => (
+              <li key={todo.id}> {todo.title} </li>
+            ))}
+          </ul>
+        );
+      };
 
-	return (
-		<div>
-			<pre>
-				{JSON.stringify(state, null, 1)}
-			</pre>
-
-			<button onClick={deleteId}>DELETE BY ID</button>
-			<button onClick={deleteName}>DELETE BY NAME</button>
-			<button onClick={addUser}>ADD USER</button>
-			<button onClick={getUser}>GET USER</button>
-			<button onClick={sortUsers}>SORT USERS</button>
-
-		</div>
-	)
+  return (
+	<div>
+		<button onClick={setAllDone}> All done </button>
+        <button onClick={() => getRemoveById(1)}> Remove </button>
+        <button onClick={() => hendleAddTodo( {
+            "userId": 1,
+            "id": 5,
+            "title": "delectus",
+            "completed": true
+        })}> Add </button>
+		<div>{toJson()}</div>
+		{todosTitle()}
+	</div>
+  )
 }
+
