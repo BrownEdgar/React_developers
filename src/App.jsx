@@ -5,9 +5,8 @@ import { addTodo, allDone, removeById } from "./features/todo/todoSlice";
 
 
 export default function App () {
-    const todos = useSelector((state) => state.todos)
+    const todos = useSelector((state) => state.todo)
     const dispatch = useDispatch()
-
 
     const setAllDone = () => {
         dispatch(allDone())
@@ -17,8 +16,14 @@ export default function App () {
         dispatch(removeById(id))
     }
 
-    const handleAdd = (todo) => {
-        dispatch(addTodo(todo))
+    const handleAdd = () => {
+			const newTodo = {
+				"userId": 1,
+				"id": Date.now(),
+				"title": "qui ullam ratione quibusdam voluptatem quia omnis",
+				"completed": false
+			}
+			dispatch(addTodo(newTodo))
     }
 
     const setToJson = () => {
@@ -35,19 +40,14 @@ export default function App () {
         )
     }
 
-    const newTodo =   {
-        "userId": 1,
-        "id": 6,
-        "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-        "completed": false
-      }
+
 
 
     return(
         <div className="App">
             <button onClick={setAllDone}> Set all done </button>
             <button onClick={() => handleRemById(3)}> Remove todo by id </button>
-            <button onClick={() => handleAdd(newTodo)}> Add new todo </button>
+            <button onClick={handleAdd}> Add new todo </button>
             <h1>TODOS FROM JSONPLACEHOLDER</h1>
             <div>{setToJson()}</div>
             {allTodos()}
