@@ -1,51 +1,71 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { alldone, removeById, addTodo} from './features/todos/todoSlice';
+import classNames from 'classnames'
 
-import './features/todos/todo.scss'
+import './App.css'
+import { selectAllUsers, selectUsersByFavoriteColor } from './features/users/usersSlice'
+import { resetFilterAction, setFilter } from './features/filter/filterSlice'
 
+ 
 export default function App() {
-	const todo = useSelector((state) => state.todo)
+  const [currentButtonIndex, setcurrentButtonIndex] = useState([])
+  const [count, setCount] = useState(0)
 	const dispatch = useDispatch();
 
-	const setAllDone = () => {
-        dispatch(alldone());
-      };
+  const users = useSelector(selectAllUsers)
+  const filteredUsers = useSelector( selectUsersByFavoriteColor)
 
-      const getRemoveById = (id) => {
-        dispatch(removeById(id));
-      };
-
-      const hendleAddTodo = (todo) => {
-        dispatch(addTodo(todo));
-      };
-
-	  const toJson = () => {
-        return JSON.stringify(todo)
-      };
-
-	  const todosTitle = () => {
-        return (
-          <ul>
-            {todo.map(todo => (
-              <li key={todo.id}> {todo.title} </li>
-            ))}
-          </ul>
-        );
-      };
-
+  const setActiveButtonIndex = (indx, color) => {
+    if(!currentButtonIndex.includes(indx)){
+      setcurrentButtonIndex(currentButtonIndex.concat(indx));
+    }
+    dispatch(setFilter(color))
+  }
+  const resetFilter = () => {
+    dispatch(resetFilterAction())
+    setcurrentButtonIndex([])
+  }
   return (
-	<div>
-		<button onClick={setAllDone}> All done </button>
-        <button onClick={() => getRemoveById(1)}> Remove </button>
-        <button onClick={() => hendleAddTodo( {
-            "userId": 1,
-            "id": 5,
-            "title": "delectus",
-            "completed": true
-        })}> Add </button>
-		<div>{toJson()}</div>
-		{todosTitle()}
+	<div className='App'>
+		<h1>Our Users | count {count}</h1>
+    <button onClick={() => setCount(count + 1)}>add count</button>
+    <div className="grid">
+      <div className="filters">
+      <button 
+          onClick={resetFilter}
+          className={classNames({
+            active: currentButtonIndex < 0
+          })}>all</button>
+        {
+          Array.from(new Set(users.map(user => user.favoritColor)))
+          .map((color,index) => {
+            return (
+              <button 
+              className={classNames({
+                active: currentButtonIndex.includes(index)
+              })}
+              onClick={() => setActiveButtonIndex(index, color)}
+              >{color}</button>
+            )
+          })
+        }
+      </div>
+        <div className="users">
+          {filteredUsers.map(user =>{
+            return (
+              <article key={user.id} 
+              style={{backgroundColor: `${user.favoritColor}`}}
+              className={classNames({
+                white: user.favoritColor === 'white',
+                'white-text': user.favoritColor === 'black',
+              })}
+              >
+                <h2>{user.name.charAt(0)}</h2>
+              </article>
+            )
+          })}
+        </div>
+    </div>
 	</div>
   )
 }

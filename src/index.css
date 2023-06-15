@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 *{
-	margin: 0;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 
@@ -15,7 +15,7 @@
 	margin: 50px;
 
 } */
-
+/* 
 a {
 	text-decoration: none;
 	color: inherit;
@@ -28,7 +28,7 @@ li {
 	padding: 8px 16px;
 	margin: 10px;
 
-}
+} */
 
 /* button {
 	border-radius: 12px;
