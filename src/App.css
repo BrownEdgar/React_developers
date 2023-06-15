@@ -1,0 +1,72 @@
+.App{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+}
+
+.grid{
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(1fr);
+}
+
+.grid > div {
+    border: 2px solid teal ;
+
+}
+
+.users{
+    display: flex;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-around;
+    align-content: start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.users > article {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+}
+
+.users > article.white{
+    border: 1px solid black;
+}
+
+article.white-text{
+    color: white;
+}
+
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filters > button {
+    padding: 0.6em 1em;
+    border: 1px solid #111;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size:14px ;
+    cursor: pointer;
+    min-width: 120px;
+    flex-basis: 30%;
+    min-width: 100px;
+}
+
+.filters > button.active{
+    background-color: #111;
+    outline-color: #fff;
+}
