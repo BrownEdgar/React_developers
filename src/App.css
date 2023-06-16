@@ -7,9 +7,9 @@
 }
 
 .grid{
-    height: 400px;
+    height: 500px;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1.5fr 4fr;
     grid-template-rows: repeat(1fr);
 }
 
@@ -48,10 +48,9 @@ article.white-text{
 .filters{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
     gap: 20px;
     flex-wrap: wrap;
+		padding: 1em;
 }
 
 .filters > button {
@@ -61,7 +60,7 @@ article.white-text{
     font-weight: 700;
     font-size:14px ;
     cursor: pointer;
-    min-width: 120px;
+
     flex-basis: 30%;
     min-width: 100px;
 }
@@ -69,4 +68,5 @@ article.white-text{
 .filters > button.active{
     background-color: #111;
     outline-color: #fff;
+		color: #fff;
 }
