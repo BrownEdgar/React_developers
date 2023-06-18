@@ -1,0 +1,43 @@
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.action{
+    flex: 2;
+    margin: 20px;
+    padding: 30px 50px;
+    flex-basis: 50%;
+    flex-wrap: wrap;
+    background-color: #bbb6b63a; 
+    width: 250px;
+    height: 250px;
+}
+h1{
+    color: rgb(163, 133, 190);
+    font-weight: 600;
+    font-size: 44px;
+}
+h2{
+    color: rgb(163, 133, 190);
+    font-size: 30px;
+}
+h3{
+    color: rgb(163, 133, 190);
+    font-size: 25px;
+}
+
+.btns{
+    display: flex;
+}
+button{
+    margin: 20px;
+    padding: 30px;
+    background-color: #bbb6b63a; 
+    font-size: 16px;
+    color: rgb(132, 98, 161);
+    font-weight: 900;
+    border: 2px solid rgb(132, 98, 161);
+    cursor: pointer;
+}
