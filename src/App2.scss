@@ -1,0 +1,55 @@
+body {
+    background: linear-gradient(to right, lightblue, orange);
+    margin: 0;
+    padding: 0;
+  }
+.object-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .object-item {
+    width: 200px; 
+    height: 200px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:last-child {
+    margin-right: 0;
+  }
+  
+  .button.sort-by-power {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .button.sort-by-time {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .button.find-highest-power {
+    background-color: #ff9800;
+    color: #fff;
+  }
+  
+  .button.add-object {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
